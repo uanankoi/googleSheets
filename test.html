@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="container">
+        <div>
+          <span>您的大名：</span><input id="nameValue" type="text">
+        </div>
+        <div>
+          <span>您的電話：</span><input id="phoneValue" type="text">
+        </div>
+        <button>送出</button>
+      </div>
+
+      <script>
+          let sendButton = document.querySelector('button');
+
+function send() {
+  let name = document.querySelector('#nameValue').value;
+  let phone = document.querySelector('#phoneValue').value;
+  $.ajax({
+    type: "get",
+    url: "https://script.google.com/macros/s/AKfycbzp4tZdp2C0p4KHzc0CLW2ppA-kvSixH75a45o02x8eOWM29qc/exec",
+    data: {
+      "name": name, /* 屬性名稱需與 Google Sheet 相同 */
+      "phone": phone, /* 屬性名稱需與 Google Sheet 相同 */
+    },
+    dataType: "JSON",
+    success: function(response) {
+      console.log(response);
+      if(response == "成功"){
+        alert("成功");
+      }
+    },
+  });
+};
+
+sendButton.addEventListener('click', send);
+      </script>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

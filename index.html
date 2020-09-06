@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: rgb(209, 144, 144);
+        }
+        .box{
+            width: 80vw;
+            background-color: #fff;
+            margin: 0 auto;
+        }
+        .line{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .line div{
+            width: 33%;
+            border: 1px solid pink;
+
+        }
+        .big{
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        .btn{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(51, 165, 159);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>GOOGLE-SHEETS</h1>
+    <div class="box">
+        <div class="line big">
+            <div class="name">name</div>
+            <div class="age">age</div>
+            <div class="email">email</div>
+        </div>
+        <div class="line">
+            <div class="name">werw</div>
+            <div class="age">16</div>
+            <div class="email">few@com</div>
+        </div>
+        <div class="line">
+            <div class="name">rgr</div>
+            <div class="age">15</div>
+            <div class="email">wdq@com</div>
+        </div>
+
+        <div class="btn">aaa</div>
+    </div>
+
+    <script>
+        // https://script.google.com/macros/s/AKfycbyh_rkF8IeDQVTXb4mMxchQ_1mqHyMoqlpeRKWIqzUh7ph6D6Q/exec
+        // 
+        // https://script.google.com/macros/s/AKfycbyh_rkF8IeDQVTXb4mMxchQ_1mqHyMoqlpeRKWIqzUh7ph6D6Q/exec
+
+        let btn = document.querySelector('.btn');
+        btn.addEventListener('click',function(e){
+            console.log('aaaaa');
+
+            let data = {
+                "name":"asd",
+                "phone":15,
+                "demand":"sadsa@mail.com"
+            }
+
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET','https://script.google.com/macros/s/AKfycbwyPeft4mZP10u4xjJsuHwB9HjXm-vRZymlEgnqw-B2KoAWPnF3/exec',true);
+            xhr.setRequestHeader('Content-type','application/json');
+            let datajson = JSON.stringify(data);
+            xhr.send(datajson);
+        })
+
+        
+    </script>
+</body>
+</html>
